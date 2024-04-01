@@ -1,4 +1,4 @@
-﻿namespace Project.Database.Entities
+﻿namespace LabProject.Database.Entities
 {
     public class Task
     {

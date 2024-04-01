@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Project.Core.Services;
+﻿using LabProject.Core.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Project.Api.Controllers
+namespace LabProject.Api.Controllers
 {
     [Route("api/tasks")]
     public class TasksController : ControllerBase
@@ -10,7 +10,7 @@ namespace Project.Api.Controllers
         private Tasks2Service tasks2Service { get; set; }
 
         public TasksController(
-            TasksService tasksService, 
+            TasksService tasksService,
             Tasks2Service tasks2Service)
         {
             this.tasksService = tasksService;

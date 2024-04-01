@@ -1,7 +1,7 @@
-﻿using Project.Database.Repositories;
-using Task = Project.Database.Entities.Task;
+﻿using LabProject.Database.Repositories;
+using Task = LabProject.Database.Entities.Task;
 
-namespace Project.Core.Services
+namespace LabProject.Core.Services
 {
     public class TasksService
     {
@@ -12,8 +12,8 @@ namespace Project.Core.Services
             this.tasksRepository = tasksRepository;
         }
 
-        public List<Task> GetTasks() 
-        { 
+        public List<Task> GetTasks()
+        {
             var results = tasksRepository.GetTasks();
 
 
@@ -24,7 +24,7 @@ namespace Project.Core.Services
         {
             var tasks = tasksRepository.GetTasks();
 
-            var result = tasks.Where(e => e.Id == taskId).FirstOrDefault(); 
+            var result = tasks.Where(e => e.Id == taskId).FirstOrDefault();
 
             return result;
         }

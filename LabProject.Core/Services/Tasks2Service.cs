@@ -1,7 +1,7 @@
-﻿using Project.Database.Repositories;
-using Task = Project.Database.Entities.Task;
+﻿using LabProject.Database.Repositories;
+using Task = LabProject.Database.Entities.Task;
 
-namespace Project.Core.Services
+namespace LabProject.Core.Services
 {
     public class Tasks2Service
     {

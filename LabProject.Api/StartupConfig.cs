@@ -1,15 +1,14 @@
-﻿
-using Project.Core.Services;
-using Project.Database.Repositories;
+﻿using LabProject.Core.Services;
+using LabProject.Database.Repositories;
 
-namespace Project.Api
+namespace LabProject.Api
 {
     public static class StartupConfig
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddScoped<TasksService>();           
-            services.AddScoped<Tasks2Service>();           
+            services.AddScoped<TasksService>();
+            services.AddScoped<Tasks2Service>();
         }
 
         public static void AddRepositories(this IServiceCollection services)

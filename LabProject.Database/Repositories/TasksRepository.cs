@@ -1,6 +1,6 @@
-﻿using Task = Project.Database.Entities.Task;
+﻿using Task = LabProject.Database.Entities.Task;
 
-namespace Project.Database.Repositories
+namespace LabProject.Database.Repositories
 {
     public class TasksRepository
     {

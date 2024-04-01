@@ -1,4 +1,4 @@
-using Project.Api;
+using LabProject.Api;
 
 internal class Program
 {
