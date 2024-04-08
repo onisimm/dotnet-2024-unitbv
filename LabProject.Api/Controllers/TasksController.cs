@@ -14,23 +14,5 @@ namespace LabProject.Api.Controllers
         {
             this.tasksService = tasksService;
         }
-
-        [HttpGet]
-        [Route("get-tasks")]
-        public IActionResult GetTasks()
-        {
-            var results = tasksService.GetTasks();
-
-            return Ok(results);
-        }
-
-        [HttpGet]
-        [Route("get-task-details")]
-        public IActionResult GetTaskDetails(int taskId)
-        {
-            var result = tasksService.GetTaskDetails(taskId);
-
-            return Ok(result);
-        }
     }
 }
