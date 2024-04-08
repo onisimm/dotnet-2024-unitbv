@@ -13,6 +13,8 @@ internal class Program
         builder.Services.AddServices();
         builder.Services.AddRepositories();
 
+
+
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())

@@ -6,10 +6,10 @@ namespace LabProject.Database.Context
 {
     public class LabProjectDbContext : DbContext
     {
-        private DbSet<User> Users { get; set; }
-        private DbSet<Project> Projects { get; set; }
-        private DbSet<Task> Tasks { get; set; }
-        private DbSet<UserProject> UserProjects { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Task> Tasks { get; set; }
+        public DbSet<UserProject> UserProjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

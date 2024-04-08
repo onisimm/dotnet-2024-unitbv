@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace LabProject.Database.Repositories
 {
-    public class ProjectsRepository : BaseRepository
+    public class UserProjectsRepository : BaseRepository
     {
-        public ProjectsRepository(LabProjectDbContext labProjectDbContext) : base(labProjectDbContext)
+        public UserProjectsRepository(LabProjectDbContext labProjectDbContext) : base(labProjectDbContext)
         {
         }
 
-        public void Add(Project project)
+        public void Add(UserProject userProject)
         {
-            labProjectDbContext.Projects.Add(project);
+            labProjectDbContext.UserProjects.Add(userProject);
             labProjectDbContext.SaveChanges();
         }
     }

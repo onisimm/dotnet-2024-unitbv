@@ -10,7 +10,7 @@ namespace LabProject.Api
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<TasksService>();
-            services.AddScoped<ProjectsRepository>();
+            services.AddScoped<ProjectsService>();
         }
 
         public static void AddRepositories(this IServiceCollection services)
@@ -21,6 +21,7 @@ namespace LabProject.Api
             services.AddScoped<TasksRepository>();
             services.AddScoped<ProjectsRepository>();
             services.AddScoped<UsersRepository>();
+            services.AddScoped<UserProjectsRepository>();
         }
     }
 }
