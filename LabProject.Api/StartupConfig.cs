@@ -8,7 +8,6 @@ namespace LabProject.Api
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<TasksService>();
-            services.AddScoped<Tasks2Service>();
         }
 
         public static void AddRepositories(this IServiceCollection services)

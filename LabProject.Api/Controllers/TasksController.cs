@@ -7,14 +7,12 @@ namespace LabProject.Api.Controllers
     public class TasksController : ControllerBase
     {
         private TasksService tasksService { get; set; }
-        private Tasks2Service tasks2Service { get; set; }
 
         public TasksController(
-            TasksService tasksService,
-            Tasks2Service tasks2Service)
+            TasksService tasksService
+            )
         {
             this.tasksService = tasksService;
-            this.tasks2Service = tasks2Service;
         }
 
         [HttpGet]
@@ -22,7 +20,6 @@ namespace LabProject.Api.Controllers
         public IActionResult GetTasks()
         {
             var results = tasksService.GetTasks();
-            results.AddRange(tasks2Service.GetTasks());
 
             return Ok(results);
         }
