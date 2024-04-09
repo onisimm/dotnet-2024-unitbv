@@ -34,5 +34,14 @@ namespace LabProject.Api.Controllers
 
             return Ok("Tasks have been successfully created");
         }
+
+        [HttpPost]
+        [Route("get-tasks")]
+        public IActionResult GetTasks([FromBody] GetTasksRequest payload)
+        {
+            var results = tasksService.GetTasks(payload);  
+
+            return Ok(results);
+        }
     }
 }

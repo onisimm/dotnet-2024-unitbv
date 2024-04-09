@@ -34,8 +34,7 @@ namespace LabProject.Database.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                    .UseSqlServer("Server=localhost;Database=LabProject;User Id=adonici;Password=123456;TrustServerCertificate=True");
-            //.LogTo(Console.WriteLine);
+                    .UseSqlServer("Server=localhost;Database=LabProject;User Id=adonici;Password=123456;TrustServerCertificate=True").LogTo(Console.WriteLine);
         }
     }
 }

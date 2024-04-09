@@ -11,9 +11,9 @@ namespace LabProject.Database.Repositories
             this.labProjectDbContext = labProjectDbContext;
         }
 
-        public async Task SaveChangesAsync()
+        public void SaveChanges()
         {
-            await labProjectDbContext.SaveChangesAsync();
+            labProjectDbContext.SaveChanges();
         }
     }
 }
