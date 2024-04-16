@@ -43,5 +43,32 @@ namespace LabProject.Api.Controllers
 
             return Ok(results);
         }
+
+        [HttpGet]
+        [Route("{taskId}/get-details")]
+        public IActionResult GetTaskDetails([FromRoute] int taskId)
+        {
+            var result = tasksService.GetTaskDetails(taskId);
+
+            return Ok(result);
+        }
+
+        [HttpPut]
+        [Route("{taskId}/edit-task")]
+        public IActionResult EditTask([FromRoute] int taskId, [FromBody] EditTaskRequest payload)
+        {
+            tasksService.EditTask(taskId, payload);
+
+            return Ok("Task has been successfully edited");
+        }
+
+        [HttpDelete]
+        [Route("delete-task")]
+        public IActionResult DeleteTask([FromQuery] int taskId)
+        {
+            tasksService.DeleteTask(taskId);
+
+            return Ok("Task has been successfully deleted");
+        }
     }
 }

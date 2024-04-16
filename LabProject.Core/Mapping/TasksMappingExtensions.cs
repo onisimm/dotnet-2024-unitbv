@@ -1,5 +1,6 @@
 ﻿using LabProject.Database.Dtos.Common;
 using LabProject.Database.Dtos.Request;
+using LabProject.Database.Dtos.Response;
 using LabProject.Database.Entities;
 using Task = LabProject.Database.Entities.Task;
 
@@ -46,6 +47,35 @@ namespace LabProject.Core.Mapping
             if (entity == null) return null;
 
             var result = new TaskDto();
+            result.Id = entity.Id;
+            result.Title = entity.Title;
+            result.Description = entity.Description;
+            result.StartDate = entity.StartDate;
+            result.DueDate = entity.DueDate;
+            result.Status = entity.Status;
+            result.Priority = entity.Priority;
+            result.ProjectTitle = entity.Project?.Title;
+
+            result.AssignedUser = new UserShortDto();
+
+            if (entity.AssignedUser == null)
+                result.AssignedUser = null;
+            else
+            {
+                result.AssignedUser.Id = entity.AssignedUser.Id;
+                result.AssignedUser.FirstName = entity.AssignedUser.FirstName;
+                result.AssignedUser.LastName = entity.AssignedUser.LastName;
+            }
+
+            return result;
+        }
+
+        public static GetTaskDetailsResponse ToGetTaskDetailsResponse(this Task entity)
+        {
+            if (entity == null) return null;
+
+            var result = new GetTaskDetailsResponse();
+            result.Id = entity.Id;
             result.Title = entity.Title;
             result.Description = entity.Description;
             result.StartDate = entity.StartDate;

@@ -13,6 +13,8 @@ namespace LabProject.Database.Dtos.Request
         public SortingCriterionDto SortingCriterion { get; set; }
 
         public List<int?> AssignedUserIds { get; set; }
-        public TaskStatuses Status { get; set; }
+        public TaskStatuses? Status { get; set; }
+        public TaskPriorities? Priority { get; set; }
+        public DateRangeDto DateRange { get; set; }
     }
 }

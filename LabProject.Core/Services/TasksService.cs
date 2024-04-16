@@ -39,5 +39,28 @@ namespace LabProject.Core.Services
 
             return result;  
         }
+
+        public GetTaskDetailsResponse GetTaskDetails(int taskId)
+        {
+           var task = tasksRepository.GetById(taskId);
+
+            var result = task.ToGetTaskDetailsResponse();
+            
+            return result;
+        }
+
+        public void EditTask(int taskId, EditTaskRequest payload)
+        {
+            var task = tasksRepository.GetById(taskId);
+
+            tasksRepository.EditTask(task, payload);
+        }
+
+        public void DeleteTask(int taskId)
+        {
+            var task = tasksRepository.GetById(taskId);
+
+            tasksRepository.DeleteTask(task);
+        }
     }
 }
