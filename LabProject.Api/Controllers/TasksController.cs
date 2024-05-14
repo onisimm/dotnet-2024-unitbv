@@ -1,11 +1,14 @@
 ﻿using LabProject.Core.Services;
 using LabProject.Database.Dtos.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace LabProject.Api.Controllers
 {
     [Route("api/tasks")]
-    public class TasksController : ControllerBase
+    [Authorize]
+    public class TasksController : BaseController
     {
         private TasksService tasksService { get; set; }
 
@@ -15,7 +18,6 @@ namespace LabProject.Api.Controllers
         {
             this.tasksService = tasksService;
         }
-
 
         [HttpPost]
         [Route("add")]
@@ -37,9 +39,9 @@ namespace LabProject.Api.Controllers
 
         [HttpPost]
         [Route("get-tasks")]
-        public IActionResult GetTasks([FromBody] GetTasksRequest payload)
+        public IActionResult GetTasks(GetTasksRequest payload)
         {
-            var results = tasksService.GetTasks(payload);  
+            var results = tasksService.GetTasks(payload);
 
             return Ok(results);
         }
@@ -57,6 +59,7 @@ namespace LabProject.Api.Controllers
         [Route("{taskId}/edit-task")]
         public IActionResult EditTask([FromRoute] int taskId, [FromBody] EditTaskRequest payload)
         {
+            var authUserId = GetUserId();
             tasksService.EditTask(taskId, payload);
 
             return Ok("Task has been successfully edited");
@@ -64,6 +67,7 @@ namespace LabProject.Api.Controllers
 
         [HttpDelete]
         [Route("delete-task")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteTask([FromQuery] int taskId)
         {
             tasksService.DeleteTask(taskId);

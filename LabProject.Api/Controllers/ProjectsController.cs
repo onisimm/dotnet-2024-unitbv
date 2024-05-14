@@ -1,11 +1,13 @@
 ﻿using LabProject.Core.Services;
 using LabProject.Database.Dtos.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LabProject.Api.Controllers
 {
     [Route("api/projects")]
-    public class ProjectsController : ControllerBase
+    [Authorize]
+    public class ProjectsController : BaseController
     {
         private ProjectsService projectsService { get; set; }
 
