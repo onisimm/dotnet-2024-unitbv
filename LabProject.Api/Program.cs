@@ -1,4 +1,5 @@
 using LabProject.Api;
+using LabProject.Infrastructure.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -10,7 +11,7 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-
+        builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddControllers();
         builder.Services.AddSwagger();
         builder.Services.AddServices();
@@ -43,6 +44,9 @@ internal class Program
         builder.Services.AddAuthorization();
 
         var app = builder.Build();
+
+        app.UseMiddleware<LoggingMiddleware>();
+        app.UseMiddleware<ExceptionHandlingMiddleware>();
 
         if (app.Environment.IsDevelopment())
         {

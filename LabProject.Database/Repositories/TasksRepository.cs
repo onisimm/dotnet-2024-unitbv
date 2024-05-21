@@ -2,6 +2,7 @@
 using LabProject.Database.Dtos.Request;
 using LabProject.Database.Entities;
 using LabProject.Database.QueryExtensions;
+using LabProject.Infrastructure.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using Task = LabProject.Database.Entities.Task;

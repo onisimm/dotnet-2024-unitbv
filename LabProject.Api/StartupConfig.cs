@@ -1,11 +1,8 @@
 ﻿using LabProject.Core.Services;
 using LabProject.Database.Context;
 using LabProject.Database.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text;
 
 namespace LabProject.Api
 {

@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace LabProject.Api.Controllers
 {
+    [ApiController]
     public class BaseController : Controller
     {
         public BaseController()
