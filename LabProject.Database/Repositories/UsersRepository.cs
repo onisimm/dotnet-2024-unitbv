@@ -1,5 +1,6 @@
 ﻿using LabProject.Database.Context;
 using LabProject.Database.Entities;
+using LabProject.Infrastructure.Exceptions;
 
 namespace LabProject.Database.Repositories
 {
@@ -23,6 +24,20 @@ namespace LabProject.Database.Repositories
                 .Where(e => e.DateDeleted == null)
 
                 .FirstOrDefault();
+
+            if (result == null)
+                throw new ResourceMissingException("User not found");
+
+            return result;
+        }
+
+        public bool ValidateUserId(int userId)
+        {
+            var result = labProjectDbContext.Users
+                .Where(e => e.Id == userId)
+                .Where(e => e.DateDeleted == null)
+
+                .Any();
 
             return result;
         }

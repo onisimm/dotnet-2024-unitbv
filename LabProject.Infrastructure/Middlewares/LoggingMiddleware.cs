@@ -18,7 +18,7 @@ namespace LabProject.Infrastructure.Middlewares
             Console.WriteLine(context.Request.Path);
 
             stopwatch = Stopwatch.StartNew();
-            await this.next(context);
+            await next(context);
             stopwatch.Stop();
 
             Console.WriteLine(context.Request.Path + " - " + stopwatch.ElapsedMilliseconds + " ms");

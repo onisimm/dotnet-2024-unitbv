@@ -1,5 +1,7 @@
 ﻿using LabProject.Database.Context;
 using LabProject.Database.Entities;
+using LabProject.Infrastructure.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,17 @@ namespace LabProject.Database.Repositories
         {
             labProjectDbContext.Projects.Add(project);
             labProjectDbContext.SaveChanges();
+        }
+
+        public bool ValidateProjectId(int projectId)
+        {
+            var result = labProjectDbContext.Projects
+                .Where(e => e.Id == projectId)
+                .Where(e => e.DateDeleted == null)
+
+                .Any();
+
+            return result;
         }
     }
 }

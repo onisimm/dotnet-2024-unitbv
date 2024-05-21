@@ -60,7 +60,7 @@ namespace LabProject.Api.Controllers
         public IActionResult EditTask([FromRoute] int taskId, [FromBody] EditTaskRequest payload)
         {
             var authUserId = GetUserId();
-            tasksService.EditTask(taskId, payload);
+            tasksService.EditTask(taskId, payload, authUserId);
 
             return Ok("Task has been successfully edited");
         }

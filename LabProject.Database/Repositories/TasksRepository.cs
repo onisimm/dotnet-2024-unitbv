@@ -1,10 +1,8 @@
 ﻿using LabProject.Database.Context;
 using LabProject.Database.Dtos.Request;
-using LabProject.Database.Entities;
 using LabProject.Database.QueryExtensions;
 using LabProject.Infrastructure.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using Task = LabProject.Database.Entities.Task;
 
 namespace LabProject.Database.Repositories
@@ -51,7 +49,7 @@ namespace LabProject.Database.Repositories
                 .AsNoTracking()
                 .ToList();
 
-            return results; 
+            return results;
         }
 
         public int CountTasks(GetTasksRequest payload)
@@ -72,6 +70,9 @@ namespace LabProject.Database.Repositories
                 .Where(e => e.DateDeleted == null)
 
                 .FirstOrDefault();
+
+            if (result == null)
+                throw new ResourceMissingException("Task not found");
 
             return result;
         }
