@@ -10,5 +10,7 @@
 
         public List<Task> Tasks { get; set; }
         public List<UserProject> UserProjects { get; set; }
+        public int RoleId { get; set; }
+        public Role Role { get; set; }
     }
 }
